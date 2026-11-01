@@ -81,20 +81,25 @@ Results reported in the paper are summarized below.
 
 The evaluation uses a 1,000,000-bit plaintext constructed from English letter-frequency-weighted sampling.
 
-| Metric | Reported result |
-| --- | --- |
-| Plaintext Shannon entropy | 4.8442 bits/byte |
-| Ciphertext Shannon entropy | 7.9987 bits/byte |
-| Plaintext/ciphertext Pearson correlation | 0.0064 |
-| Byte-distribution chi-square p-value | 0.915 |
-| Ciphertext bit balance | 0.4998 |
-| Bit flip rate between adjacent CRP indices | 50.06% |
-
-<p align="center">
-  <img src="docs/figures/ciphertext-distribution.png" alt="Ciphertext byte-frequency plot from the paper, with a uniform reference at 1/256 and chi-square p-value of 0.915" width="500">
-</p>
-
-*Ciphertext byte distribution from the paper, Fig. 6. The dashed line marks the uniform reference distribution.*
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <table>
+        <tr><th>Metric</th><th>Reported result</th></tr>
+        <tr><td>Plaintext Shannon entropy</td><td>4.8442 bits/byte</td></tr>
+        <tr><td>Ciphertext Shannon entropy</td><td>7.9987 bits/byte</td></tr>
+        <tr><td>Plaintext/ciphertext Pearson correlation</td><td>0.0064</td></tr>
+        <tr><td>Byte-distribution chi-square p-value</td><td>0.915</td></tr>
+        <tr><td>Ciphertext bit balance</td><td>0.4998</td></tr>
+        <tr><td>Bit flip rate between adjacent CRP indices</td><td>50.06%</td></tr>
+      </table>
+    </td>
+    <td width="50%" valign="top">
+      <img src="docs/figures/ciphertext-distribution.png" alt="Ciphertext byte-frequency plot from the paper, with a uniform reference at 1/256 and chi-square p-value of 0.915" width="480">
+      <p><em>Ciphertext byte distribution from the paper, Fig. 6. The dashed line marks the uniform reference distribution.</em></p>
+    </td>
+  </tr>
+</table>
 
 ### FPGA implementation
 

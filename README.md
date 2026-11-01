@@ -26,11 +26,12 @@ The implementation spans three parts:
 
 USB storage connects to the host PC. Python sends commands and data over UART; MicroBlaze moves the data through the FPGA's XOR engine and returns the output. The FPGA does not act as a USB host.
 
-| Layer | Main source | Responsibility |
-| --- | --- | --- |
-| Hardware | [`hardware/rtl/`](hardware/rtl/) | XOR datapath and policy FSM |
-| Firmware | [`firmware/src/main.c`](firmware/src/main.c) | UART commands, response-table loading, and stream transfers |
-| Software | [`host/xorpuf.py`](host/xorpuf.py) | File handling, header validation, and serial communication |
+<table align="center">
+  <tr><th>Layer</th><th>Main source</th><th>Responsibility</th></tr>
+  <tr><td>Hardware</td><td><a href="hardware/rtl/"><code>hardware/rtl/</code></a></td><td>XOR datapath and policy FSM</td></tr>
+  <tr><td>Firmware</td><td><a href="firmware/src/main.c"><code>firmware/src/main.c</code></a></td><td>UART commands, response-table loading, and stream transfers</td></tr>
+  <tr><td>Software</td><td><a href="host/xorpuf.py"><code>host/xorpuf.py</code></a></td><td>File handling, header validation, and serial communication</td></tr>
+</table>
 
 ## Obfuscation Datapath
 
@@ -54,12 +55,13 @@ The paper also describes LFSR-based challenge expansion. Experimental LFSR IP is
 
 *Policy state machine from the paper, Fig. 2. E denotes enrollment status and M denotes a signature match in the transition description.*
 
-| State | Output | Intended operation |
-| --- | --- | --- |
-| Idle | `00` | Wait for a request |
-| Enroll / encrypt | `01` | Establish a session signature and encrypt data |
-| Decrypt | `10` | Accept a matching signature and recover plaintext |
-| Reject | `11` | Deny a mismatched signature |
+<table align="center">
+  <tr><th>State</th><th>Output</th><th>Intended operation</th></tr>
+  <tr><td>Idle</td><td><code>00</code></td><td>Wait for a request</td></tr>
+  <tr><td>Enroll / encrypt</td><td><code>01</code></td><td>Establish a session signature and encrypt data</td></tr>
+  <tr><td>Decrypt</td><td><code>10</code></td><td>Accept a matching signature and recover plaintext</td></tr>
+  <tr><td>Reject</td><td><code>11</code></td><td>Deny a mismatched signature</td></tr>
+</table>
 
 The firmware compares a claimed signature against a hash of its compiled response table. The host checks the authentication response before requesting a transfer.
 
@@ -105,17 +107,18 @@ The evaluation uses a 1,000,000-bit plaintext constructed from English letter-fr
 
 Target: **Nexys A7-100T**, Artix-7 `xc7a100tcsg324-1`, using **Vivado / Vitis 2025.2**.
 
-| Resource or metric | Result |
-| --- | --- |
-| Total LUTs | 2,138 / 63,400 (3.37%) |
-| LUTs used as logic | 1,996 (3.15% of device LUTs) |
-| Registers | 2,212 / 126,800 (1.74%) |
-| Block RAM | 18 / 135 tiles (13.33%) |
-| DSP slices | 0 |
-| Primary clock | 100 MHz |
-| Estimated total on-chip power | 0.235 W |
-| Worst setup slack | +1.809 ns |
-| Worst hold slack | +0.035 ns |
+<table align="center">
+  <tr><th>Resource or metric</th><th>Result</th></tr>
+  <tr><td>Total LUTs</td><td>2,138 / 63,400 (3.37%)</td></tr>
+  <tr><td>LUTs used as logic</td><td>1,996 (3.15% of device LUTs)</td></tr>
+  <tr><td>Registers</td><td>2,212 / 126,800 (1.74%)</td></tr>
+  <tr><td>Block RAM</td><td>18 / 135 tiles (13.33%)</td></tr>
+  <tr><td>DSP slices</td><td>0</td></tr>
+  <tr><td>Primary clock</td><td>100 MHz</td></tr>
+  <tr><td>Estimated total on-chip power</td><td>0.235 W</td></tr>
+  <tr><td>Worst setup slack</td><td>+1.809 ns</td></tr>
+  <tr><td>Worst hold slack</td><td>+0.035 ns</td></tr>
+</table>
 
 The [Vivado reports](reports/) provide utilization, power, and timing details. The paper reports ten successful repetitions of each functional scenario: enrollment, matching-signature decryption, and rejection.
 

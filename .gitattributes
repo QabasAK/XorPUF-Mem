@@ -1,0 +1,7 @@
+# Preserve recovered artifacts byte-for-byte, including vendor formatting.
+firmware/** -text whitespace=-blank-at-eol,-blank-at-eof
+hardware/** -text whitespace=-blank-at-eol,-blank-at-eof
+host/allHW.py -text whitespace=-blank-at-eol,-blank-at-eof
+reports/** -text whitespace=-blank-at-eol,-blank-at-eof
+*.pdf binary
+*.xsa binary

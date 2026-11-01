@@ -1,0 +1,152 @@
+[
+  {
+    "source": "vitis_USB_1/app_component/src/main.c",
+    "file": "firmware/src/main.c",
+    "sha256": "237318ce31f381f24ef39ca43b610a091ccc98f16878046d51f7d4f7f6d17f82"
+  },
+  {
+    "source": "vitis_USB_1/app_component/src/puf_data.h",
+    "file": "firmware/src/puf_data.h",
+    "sha256": "ecffb1e645162c287ef506237b3b50a6bfdf0ff9b1a5608d56b0bbee291b0f63"
+  },
+  {
+    "source": "vitis_USB_1/app_component/src/lscript.ld",
+    "file": "firmware/src/lscript.ld",
+    "sha256": "fcca5f9ec2d3dd5c775a4705ff111ee962e957ad53e7de30b20ca9476f90c331"
+  },
+  {
+    "source": "vitis_USB_1/app_component/src/CMakeLists.txt",
+    "file": "firmware/src/CMakeLists.txt",
+    "sha256": "2cfe1718c9df0be07ca5516a78829f794496c3424cc73cf46c7355febf6463c7"
+  },
+  {
+    "source": "vitis_USB_1/app_component/src/Empty_applicationExample.cmake",
+    "file": "firmware/src/Empty_applicationExample.cmake",
+    "sha256": "3d0f280b2910a3a649e585de2eb1396dc11a0a9a91c895bd2e1a1dde3994fd8a"
+  },
+  {
+    "source": "vitis_USB_1/app_component/src/UserConfig.cmake",
+    "file": "firmware/src/UserConfig.cmake",
+    "sha256": "751914c368b48720396a82407ef95abf4b58ec5b57c34c6c288e8fe69fb0eae3"
+  },
+  {
+    "source": "vitis_USB_1/puf_platform/hw/design_1_wrapper_XOR2.xsa",
+    "file": "hardware/export/design_1_wrapper_XOR2.xsa",
+    "sha256": "0a8ba1884a6c1af2dd44e31df5dd3c9316bcfa07c0bd7b371519819dc3c60da6"
+  },
+  {
+    "source": "EncDec_SW/allHW.py",
+    "file": "host/allHW.py",
+    "sha256": "5a066f3454a368aa5301c9ac91d467de584e052da38dba779454cea41706d923"
+  },
+  {
+    "source": "IJSRP - PUFs/project_1/project_1.srcs/sources_1/new/usb_security_fsm.v",
+    "file": "hardware/rtl/usb_security_fsm.v",
+    "sha256": "dc343104c72344199888a812b8531a75e5ae831c26a356ab5599508232988f1a"
+  },
+  {
+    "source": "IJSRP - PUFs/project_1/project_1.gen/sources_1/bd/design_1/ipshared/c207/hdl/xor_enc_dec.v",
+    "file": "hardware/rtl/xor_enc_dec.v",
+    "sha256": "27b19eaa5422d041826437ee29b839d4f01ea4a2de80ec66bfec8f66d80d97bf"
+  },
+  {
+    "source": "IJSRP - PUFs/project_1/project_1.srcs/sources_1/bd/design_1/design_1.bd",
+    "file": "hardware/bd/design_1.bd",
+    "sha256": "39f3ce7d78e9b26577f12cc0fa8ee18690cbbe3a3d045f1ebfdf2d6f51daad43"
+  },
+  {
+    "source": "IJSRP - PUFs/ip_repo/xor_enc_dec_1_0/component.xml",
+    "file": "hardware/experimental/ip_repo/xor_enc_dec_1_0/component.xml",
+    "sha256": "5878f2ee7846221940fd85a4b0fde8fc4c850e039270c854ff2afd566eee533a"
+  },
+  {
+    "source": "IJSRP - PUFs/ip_repo/xor_enc_dec_1_0/bd/bd.tcl",
+    "file": "hardware/experimental/ip_repo/xor_enc_dec_1_0/bd/bd.tcl",
+    "sha256": "1c84726f85b384b436e268025ceca83ffa845ba278ff1acf1650a58ebd373fc6"
+  },
+  {
+    "source": "IJSRP - PUFs/ip_repo/xor_enc_dec_1_0/hdl/xor_enc_dec.v",
+    "file": "hardware/experimental/ip_repo/xor_enc_dec_1_0/hdl/xor_enc_dec.v",
+    "sha256": "ade0ba0cced2890609623ad3e24aad396bda3a7bf3ca28e6a0d931fc80823dd5"
+  },
+  {
+    "source": "IJSRP - PUFs/ip_repo/xor_enc_dec_1_0/hdl/xor_enc_dec_master_stream_v1_0_M_AXIS.v",
+    "file": "hardware/experimental/ip_repo/xor_enc_dec_1_0/hdl/xor_enc_dec_master_stream_v1_0_M_AXIS.v",
+    "sha256": "e10a790fbd845db46a104d0dcc3706ec014bd661e2e2653df369d049fa9c7025"
+  },
+  {
+    "source": "IJSRP - PUFs/ip_repo/xor_enc_dec_1_0/hdl/xor_enc_dec_slave_lite_v1_0_S00_AXI.v",
+    "file": "hardware/experimental/ip_repo/xor_enc_dec_1_0/hdl/xor_enc_dec_slave_lite_v1_0_S00_AXI.v",
+    "sha256": "bc79223ad18185d7d6394ee6c6cca5efbce90e4b3b903fffaa08a81aa9942284"
+  },
+  {
+    "source": "IJSRP - PUFs/ip_repo/xor_enc_dec_1_0/hdl/xor_enc_dec_slave_stream_v1_0_S_AXIS.v",
+    "file": "hardware/experimental/ip_repo/xor_enc_dec_1_0/hdl/xor_enc_dec_slave_stream_v1_0_S_AXIS.v",
+    "sha256": "a15d0de13370cae75bb231df8f3c31b0bcdd0e81b94aa023143114de8668627b"
+  },
+  {
+    "source": "IJSRP - PUFs/ip_repo/xor_enc_dec_1_0/xgui/xor_enc_dec_v1_0.tcl",
+    "file": "hardware/experimental/ip_repo/xor_enc_dec_1_0/xgui/xor_enc_dec_v1_0.tcl",
+    "sha256": "462842a31833a015d591ea7c0694f0b83379c40117372ac1ce856092ab941155"
+  },
+  {
+    "source": "IJSRP - PUFs/ip_repo/xor_enc_dec_1_0/example_designs/bfm_design/design.tcl",
+    "file": "hardware/experimental/ip_repo/xor_enc_dec_1_0/example_designs/bfm_design/design.tcl",
+    "sha256": "f85b110aebbd304810e82f44ca8fc51e6bededa85daca2f101cc864b0e934919"
+  },
+  {
+    "source": "IJSRP - PUFs/ip_repo/xor_enc_dec_1_0/example_designs/debug_hw_design/design.tcl",
+    "file": "hardware/experimental/ip_repo/xor_enc_dec_1_0/example_designs/debug_hw_design/design.tcl",
+    "sha256": "fac5d11253d45133190d80bda1f1fdc4579340e2c1246fa91fb2065cd59205cc"
+  },
+  {
+    "source": "IJSRP - PUFs/ip_repo/xor_enc_dec_1_0/example_designs/debug_hw_design/xor_enc_dec_hw_test.tcl",
+    "file": "hardware/experimental/ip_repo/xor_enc_dec_1_0/example_designs/debug_hw_design/xor_enc_dec_hw_test.tcl",
+    "sha256": "8afff05cd1c97b28812e3da510dfa4195ea65c6400c7538a3411042212a773d5"
+  },
+  {
+    "source": "IJSRP - PUFs/ip_repo/xor_enc_dec_1_0/drivers/xor_enc_dec_v1_0/data/xor_enc_dec.mdd",
+    "file": "hardware/experimental/ip_repo/xor_enc_dec_1_0/drivers/xor_enc_dec_v1_0/data/xor_enc_dec.mdd",
+    "sha256": "f74f7c90a4bc6c7be15b2d0098d3a8eaddd2156376cb9d00e7179e07444d1d70"
+  },
+  {
+    "source": "IJSRP - PUFs/ip_repo/xor_enc_dec_1_0/drivers/xor_enc_dec_v1_0/data/xor_enc_dec.tcl",
+    "file": "hardware/experimental/ip_repo/xor_enc_dec_1_0/drivers/xor_enc_dec_v1_0/data/xor_enc_dec.tcl",
+    "sha256": "60c56db05aaa0f5a81058fed5680f6ae628cd49f4a3a864dbefa7d5de89fefad"
+  },
+  {
+    "source": "IJSRP - PUFs/ip_repo/xor_enc_dec_1_0/drivers/xor_enc_dec_v1_0/src/xor_enc_dec.c",
+    "file": "hardware/experimental/ip_repo/xor_enc_dec_1_0/drivers/xor_enc_dec_v1_0/src/xor_enc_dec.c",
+    "sha256": "4b5cbe1b7b877961e8c821a5cf15bf1a88b9dc44e2d40ab1b78f5b4ebd7100c7"
+  },
+  {
+    "source": "IJSRP - PUFs/ip_repo/xor_enc_dec_1_0/drivers/xor_enc_dec_v1_0/src/xor_enc_dec.h",
+    "file": "hardware/experimental/ip_repo/xor_enc_dec_1_0/drivers/xor_enc_dec_v1_0/src/xor_enc_dec.h",
+    "sha256": "0ffc654e10d4ec5bc0e581c44a657c65e53fb88abc50087c837ac1294cce3b53"
+  },
+  {
+    "source": "IJSRP - PUFs/ip_repo/xor_enc_dec_1_0/drivers/xor_enc_dec_v1_0/src/xor_enc_dec_selftest.c",
+    "file": "hardware/experimental/ip_repo/xor_enc_dec_1_0/drivers/xor_enc_dec_v1_0/src/xor_enc_dec_selftest.c",
+    "sha256": "d0d690948fbce813513e9aedbe716b14257c55e9c54c001bc5db1bc1e4c4257b"
+  },
+  {
+    "source": "IJSRP - PUFs/project_1/project_1.runs/impl_1/design_1_wrapper_utilization_placed.rpt",
+    "file": "reports/design_1_wrapper_utilization_placed.rpt",
+    "sha256": "4ecfc5d6abbc09ab60261f9d5a8c3ad0eb0c1beea91762e313f439529c3a4930"
+  },
+  {
+    "source": "IJSRP - PUFs/project_1/project_1.runs/impl_1/design_1_wrapper_power_routed.rpt",
+    "file": "reports/design_1_wrapper_power_routed.rpt",
+    "sha256": "4244f05767ca07be7e4b17ee5e43750639117cb3755469d3ec3c7bc80b4697fc"
+  },
+  {
+    "source": "IJSRP - PUFs/project_1/project_1.runs/impl_1/design_1_wrapper_timing_summary_routed.rpt",
+    "file": "reports/design_1_wrapper_timing_summary_routed.rpt",
+    "sha256": "bb43b3d55e8c225215e6bf370615971c836e79c10e6febb79c8af4d2bbd73698"
+  },
+  {
+    "source": "IJSRP - PUFs/design_1.pdf",
+    "file": "docs/design_1.pdf",
+    "sha256": "6a6cf86cdccb871c5f052bc7e978185931eb9dd06c21f4fae5c711ed33c6a564"
+  }
+]

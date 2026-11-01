@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.venv/
+.Xil/
+*.jou
+*.log
+*.str
+*.runs/
+*.cache/
+*.sim/
+*.gen/
+*.ip_user_files/
+_ide/
+build/

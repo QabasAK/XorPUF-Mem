@@ -1,0 +1,2 @@
+pyserial
+WMI; sys_platform == "win32"

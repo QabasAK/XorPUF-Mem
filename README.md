@@ -16,15 +16,13 @@ The implementation spans three parts:
 - **Firmware:** a MicroBlaze application that loads the response table, handles enrollment commands, and transfers bytes through the XOR engine.
 - **Software:** a Python CLI for file encryption, decryption, and communication with the board.
 
-The current CLI provides explicit file operations and preserves input files. The original USB insertion watcher is retained as a historical reference.
-
 ## System Architecture
 
 <p align="center">
   <img src="docs/figures/architecture.png" alt="Paper architecture showing Python file I/O, MicroBlaze firmware, the policy FSM, BRAM response storage, and the AXI-Stream XOR engine" width="500">
 </p>
 
-*System architecture from the paper, Fig. 1. Version-specific source differences are documented in the [implementation notes](docs/IMPLEMENTATION.md).*
+*System architecture from the paper, Fig. 1.*
 
 USB storage connects to the host PC. Python sends commands and data over UART; MicroBlaze moves the data through the FPGA's XOR engine and returns the output. The FPGA does not act as a USB host.
 
@@ -40,13 +38,13 @@ Encryption and decryption use the same XOR operation:
 
 $$ C_i = P_i \oplus K_i, \qquad P_i = C_i \oplus K_i $$
 
-Here, $P_i$ is a plaintext byte, $C_i$ is its ciphertext byte, and $K_i$ is a byte selected from the response table. In the counter-based RTL snapshot, BRAM words are addressed as:
+Here, $P_i$ is a plaintext byte, $C_i$ is its ciphertext byte, and $K_i$ is a byte selected from the response table. The counter-based XOR engine addresses BRAM words as:
 
 $$ \text{BRAM address} = 4\left(\left\lfloor\frac{\text{byte count}}{4}\right\rfloor \bmod 100\right) $$
 
-Each 32-bit response supplies four key bytes, selected from most significant to least significant. A reset restarts the stream; the host preserves the original dummy-byte exchange for alignment with the firmware.
+Each 32-bit response supplies four key bytes, selected from most significant to least significant. A reset restarts the stream; a dummy-byte exchange aligns the host with the firmware.
 
-The paper also describes LFSR-based challenge expansion. A separate LFSR IP revision is preserved under [`hardware/experimental/`](hardware/experimental/); it requires validation before use with this firmware.
+The paper also describes LFSR-based challenge expansion. Experimental LFSR IP is available under [`hardware/experimental/`](hardware/experimental/).
 
 ## Enrollment and Authentication
 
@@ -63,7 +61,7 @@ The paper also describes LFSR-based challenge expansion. A separate LFSR IP revi
 | Decrypt | `10` | Accept a matching signature and recover plaintext |
 | Reject | `11` | Deny a mismatched signature |
 
-The current firmware compares a claimed signature against a hash of its compiled response table. This does not verify a USB drive's physical identity. The CLI checks authentication before requesting a transfer; the firmware transfer command itself is not gated by authentication state.
+The firmware compares a claimed signature against a hash of its compiled response table. The host checks the authentication response before requesting a transfer.
 
 Encrypted files use a 12-byte header followed by ciphertext:
 
@@ -77,7 +75,7 @@ The signature and byte length use big-endian encoding.
 
 ## Results
 
-These values are reported in the paper. They are historical experimental results, not measurements from a new build of this repository.
+Results reported in the paper are summarized below.
 
 ### Ciphertext statistics
 
@@ -114,7 +112,7 @@ Target: **Nexys A7-100T**, Artix-7 `xc7a100tcsg324-1`, using **Vivado / Vitis 20
 | Worst setup slack | +1.809 ns |
 | Worst hold slack | +0.035 ns |
 
-The existing [Vivado reports](reports/) provide utilization, power, and timing details. The paper reports ten successful repetitions of each functional scenario: enrollment, matching-signature decryption, and rejection.
+The [Vivado reports](reports/) provide utilization, power, and timing details. The paper reports ten successful repetitions of each functional scenario: enrollment, matching-signature decryption, and rejection.
 
 ## Running the Host
 
@@ -148,16 +146,14 @@ hardware/rtl/          Counter-based XOR engine and policy FSM
 hardware/bd/           Vivado block design
 hardware/export/       Vitis hardware handoff (XSA)
 hardware/experimental/ Separate LFSR-based IP revision
-reports/               Existing Vivado reports
+reports/               Vivado utilization, power, and timing reports
 docs/                  Implementation notes, figures, and source manifest
-EncDec_SW/             Earlier host scripts and analysis artifacts
-vitis_USB.zip          Earlier Vitis workspace archive
+EncDec_SW/             USB middleware and analysis scripts
+vitis_USB.zip          Vitis workspace archive
 ```
-
-`host/allHW.py` is the original Windows USB watcher. It automatically resets enrollment and removes plaintext after encryption; use the maintained CLI for explicit file operations.
 
 ## Scope and Limitations
 
-The prototype emulates PUF responses in BRAM; physical PUF integration, environmental reliability, error correction, and side-channel resistance remain future work. The checked-in firmware table and separate RTL revisions require reconciliation before reproducing the paper's statistical experiments. The XOR construction does not provide integrity protection, and statistical randomness tests do not establish cryptographic security. The current host has mocked protocol tests; the cleaned-up CLI has not yet been validated on the board.
+The prototype emulates PUF responses in BRAM; physical PUF integration, environmental reliability, error correction, and side-channel resistance remain future work. The XOR construction does not provide integrity protection, and statistical randomness tests do not establish cryptographic security. Signature matching does not verify a USB drive's physical identity, and the firmware transfer command is not independently gated by authentication state.
 
-See [implementation notes](docs/IMPLEMENTATION.md) for the source audit and [figure provenance](docs/figures/README.md) for the paper illustrations.
+See [implementation notes](docs/IMPLEMENTATION.md) for build details and [figure provenance](docs/figures/README.md) for the paper illustrations.

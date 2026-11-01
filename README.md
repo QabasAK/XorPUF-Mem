@@ -19,7 +19,7 @@ The implementation spans three parts:
 ## System Architecture
 
 <p align="center">
-  <img src="docs/figures/architecture.png" alt="Paper architecture showing Python file I/O, MicroBlaze firmware, the policy FSM, BRAM response storage, and the AXI-Stream XOR engine" width="500">
+  <img src="docs/figures/architecture.png" alt="Paper architecture showing Python file I/O, MicroBlaze firmware, the policy FSM, BRAM response storage, and the AXI-Stream XOR engine" width="450">
 </p>
 
 *System architecture from the paper, Fig. 1.*
@@ -49,7 +49,7 @@ The paper also describes LFSR-based challenge expansion. Experimental LFSR IP is
 ## Enrollment and Authentication
 
 <p align="center">
-  <img src="docs/figures/access-control.png" alt="Paper state machine with idle, enroll, decrypt, and reject states" width="520">
+  <img src="docs/figures/access-control.png" alt="Paper state machine with idle, enroll, decrypt, and reject states" width="450">
 </p>
 
 *Policy state machine from the paper, Fig. 2. E denotes enrollment status and M denotes a signature match in the transition description.*
@@ -91,7 +91,7 @@ The evaluation uses a 1,000,000-bit plaintext constructed from English letter-fr
 | Bit flip rate between adjacent CRP indices | 50.06% |
 
 <p align="center">
-  <img src="docs/figures/ciphertext-distribution.png" alt="Ciphertext byte-frequency plot from the paper, with a uniform reference at 1/256 and chi-square p-value of 0.915" width="680">
+  <img src="docs/figures/ciphertext-distribution.png" alt="Ciphertext byte-frequency plot from the paper, with a uniform reference at 1/256 and chi-square p-value of 0.915" width="500">
 </p>
 
 *Ciphertext byte distribution from the paper, Fig. 6. The dashed line marks the uniform reference distribution.*

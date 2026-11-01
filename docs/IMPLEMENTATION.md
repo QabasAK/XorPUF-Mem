@@ -31,6 +31,12 @@ The firmware resets the engine and performs one internal dummy stream exchange. 
 7. **RTL interfaces.** The cached engine samples the unsynchronized AXI control bit for counter reset despite declaring synchronizer registers. The experimental engine pulses output valid without retaining it under backpressure. Full AXI-Lite and stream behavior needs simulation before reuse outside the original setup.
 8. **Build recovery.** The original project references an external `puf_init.coe` that was not found at the referenced location. Firmware loads BRAM at boot. No verified external pin constraints or portable project recreation script were recovered in this source set. Reusing the XSA and rebuilding from RTL are distinct validation tasks.
 
+## Maintained host CLI
+
+`host/xorpuf.py` is the maintained entry point. The unchanged `host/allHW.py` remains a provenance reference. The CLI exposes explicit single-file operations, retains inputs, refuses output overwrites, stages transfers, and checks serial replies and file lengths. It does not reset enrollment on startup or print plaintext. It preserves the original wire protocol, including both dummy exchanges. No firmware or cryptographic algorithm changes were made. A fresh-board decrypt performs the initial enrollment exchange and then authenticates the file signature again; a rejection creates no output. Enrollment state changes cannot be rolled back if a later transfer fails.
+
+After a mid-transfer UART error, reinitialize the FPGA before retrying: the firmware has no framed transport or cancel command to resynchronize an incomplete transfer. Mocked protocol/file-safety tests cover host behavior; hardware compatibility remains unverified.
+
 ## Validation performed during recovery
 
 Copied source hashes were checked against Desktop originals. Python files were parsed without executing USB watchers or touching serial ports. The XSA archive was checked for corruption, and the block-design JSON was parsed. The response-table arithmetic pattern was checked across all 100 words. No FPGA programming, firmware compilation, timing rerun, physical PUF measurement, or USB encryption was performed.
